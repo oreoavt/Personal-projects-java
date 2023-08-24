@@ -8,11 +8,15 @@ public class Fortythree extends JFrame implements ActionListener, ChangeListener
     private JCheckBox box;
     private JScrollPane pane;
     private JTextArea text;
+    private JButton boton1, boton2;
+    String u_name = "";
 
     public Fortythree() {
         setLayout(null);
         setTitle("Licencia de uso");
         getContentPane().setBackground(new Color(38, 41, 46));
+        Fortyone user_name = new Fortyone();
+        u_name = user_name.texto;
 
         label1 = new JLabel("TÉRMINOS Y CONDICIONES");
         label1.setBounds(215, 5, 300, 30);
@@ -20,8 +24,8 @@ public class Fortythree extends JFrame implements ActionListener, ChangeListener
         label1.setForeground(new Color(171, 178, 185));
         add(label1);
 
-        JLabel label3 = new JLabel("Yo acepto");
-        label3.setBounds(376, 281, 100, 30);
+        JLabel label3 = new JLabel("Yo " + ", " + "'" + u_name + "'" + ", " + " acepto");
+        label3.setBounds(376, 281, 200, 30);
         label3.setFont(new Font("Andale Mono", 1, 15));
         label3.setForeground(new Color(213, 245, 227));
         add(label3);
@@ -41,14 +45,14 @@ public class Fortythree extends JFrame implements ActionListener, ChangeListener
         box.addChangeListener(this);
         add(box);
 
-        JButton boton1 = new JButton("Acepto");
+        boton1 = new JButton("Acepto");
         boton1.setEnabled(false);
         boton1.setBounds(350, 350, 100, 30);
         boton1.addActionListener(this);
         boton1.setBackground(new Color(249, 235, 234));
         add(boton1);
 
-        JButton boton2 = new JButton("No acepto");
+        boton2 = new JButton("No acepto");
         boton2.setEnabled(true);
         boton2.setBounds(470, 350, 100, 30);
         boton2.addActionListener(this);
@@ -63,11 +67,31 @@ public class Fortythree extends JFrame implements ActionListener, ChangeListener
     }
 
     public void stateChanged(ChangeEvent e) {
-
+        if (box.isSelected()) {
+            boton1.setEnabled(true);
+            boton2.setEnabled(false);
+        } else {
+            boton1.setEnabled(false);
+            boton2.setEnabled(true);
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == boton1) {
+            Fortyfour formulario = new Fortyfour();
+            formulario.setBounds(0, 0, 640, 760);
+            formulario.setVisible(true);
+            formulario.setResizable(false);
+            formulario.setLocationRelativeTo(null);
+            this.setVisible(false);
+        } else if (e.getSource() == boton2) {
+            Fortyone formulario = new Fortyone();
+            formulario.setBounds(0, 0, 600, 700);
+            formulario.setVisible(true);
+            formulario.setResizable(false);
+            formulario.setLocationRelativeTo(null);
+            this.setVisible(false);
+        }
     }
 
     public static void main(String args[]) {

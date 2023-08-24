@@ -12,11 +12,14 @@ public class Fortyfour extends JFrame implements ActionListener {
     private JScrollPane spane;
     private JTextArea area;
     private ImageIcon img;
+    String adminName = "";
 
     public Fortyfour() {
         setLayout(null);
         setTitle("Pantalla pricipal");
         getContentPane().setBackground(new Color(245, 183, 177));
+        Fortyone getUserName = new Fortyone();
+        adminName = getUserName.texto;
 
         mb = new JMenuBar();
         mb.setBackground(new Color(241, 148, 138));
@@ -92,7 +95,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         logo.setBounds(60, 0, 512, 512);
         add(logo);
 
-        welcome = new JLabel("Welcome to my practice profile");
+        welcome = new JLabel("Welcome to my practice profile" + adminName);
         welcome.setFont(new Font("Andale mono", 1, 20));
         welcome.setForeground(new Color(253, 237, 236));
         add(welcome);
@@ -152,7 +155,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         department = new JComboBox();
         department.setBackground(new Color(244, 236, 247));
         department.setFont(new Font("Andale mono", 3, 14));
-        department.setForeground(new Color(253, 237, 236));
+        department.setForeground(new Color(39, 55, 70));
         department.setBounds(300, 460, 220, 25);
         add(department);
         department.addItem("");
@@ -169,7 +172,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         old = new JComboBox();
         old.setBackground(new Color(244, 236, 247));
         old.setFont(new Font("Andale mono", 3, 14));
-        old.setForeground(new Color(253, 237, 236));
+        old.setForeground(new Color(39, 55, 70));
         old.setBounds(300, 540, 220, 25);
         add(old);
         old.addItem("");
@@ -187,7 +190,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         area.setEditable(false);
         area.setBackground(new Color(244, 236, 247));
         area.setFont(new Font("Andale mono", 3, 14));
-        area.setForeground(new Color(253, 237, 236));
+        area.setForeground(new Color(39, 55, 70));
         area.setText("\n Here's your result");
         spane = new JScrollPane(area);
         spane.setBounds(300, 580, 300, 90);

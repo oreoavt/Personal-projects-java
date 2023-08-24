@@ -7,6 +7,7 @@ public class Fortyone extends JFrame implements ActionListener {
     private JButton boton;
     private JTextField text;
     private ImageIcon imagen;
+    public static String texto = "";
 
     public Fortyone() {
         setLayout(null);
@@ -54,7 +55,17 @@ public class Fortyone extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boton) {
-
+            texto = text.getText().trim();
+            if (texto.equals("")) {
+                JOptionPane.showMessageDialog(null, "Hola!!, ingresa tu nombre");
+            } else {
+                Fortythree formulario = new Fortythree();
+                formulario.setBounds(0, 0, 685, 600);
+                formulario.setVisible(true);
+                formulario.setResizable(false);
+                formulario.setLocationRelativeTo(null);
+                this.setVisible(false);
+            }
         }
     }
 
