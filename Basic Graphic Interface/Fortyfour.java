@@ -95,7 +95,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         logo.setBounds(60, 0, 512, 512);
         add(logo);
 
-        welcome = new JLabel("Welcome to my practice profile" + adminName);
+        welcome = new JLabel("Welcome to my practice profile " + adminName);
         welcome.setFont(new Font("Andale mono", 1, 20));
         welcome.setForeground(new Color(253, 237, 236));
         add(welcome);
@@ -116,7 +116,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         worker = new JTextField();
         worker.setBackground(new Color(244, 236, 247));
         worker.setFont(new Font("Andale mono", 3, 14));
-        worker.setForeground(new Color(253, 237, 236));
+        worker.setForeground(new Color(39, 55, 70));
         worker.setBounds(25, 460, 150, 25);
         add(worker);
 
@@ -129,7 +129,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         paternal = new JTextField();
         paternal.setBackground(new Color(244, 236, 247));
         paternal.setFont(new Font("Andale mono", 3, 14));
-        paternal.setForeground(new Color(253, 237, 236));
+        paternal.setForeground(new Color(39, 55, 70));
         paternal.setBounds(25, 540, 150, 25);
         add(paternal);
 
@@ -142,7 +142,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         maternal = new JTextField();
         maternal.setBackground(new Color(244, 236, 247));
         maternal.setFont(new Font("Andale mono", 3, 14));
-        maternal.setForeground(new Color(253, 237, 236));
+        maternal.setForeground(new Color(39, 55, 70));
         maternal.setBounds(25, 610, 150, 25);
         add(maternal);
 
@@ -177,7 +177,7 @@ public class Fortyfour extends JFrame implements ActionListener {
         add(old);
         old.addItem("");
         old.addItem("Continue practicing JAVA");
-        old.addItem("Learn backlog");
+        old.addItem("Learn how to implement backlog in your code");
         old.addItem("Learn how to play chess");
 
         result = new JLabel("S");
@@ -188,7 +188,7 @@ public class Fortyfour extends JFrame implements ActionListener {
 
         area = new JTextArea();
         area.setEditable(false);
-        area.setBackground(new Color(244, 236, 247));
+        area.setBackground(new Color(91, 44, 111));
         area.setFont(new Font("Andale mono", 3, 14));
         area.setForeground(new Color(39, 55, 70));
         area.setText("\n Here's your result");
@@ -203,26 +203,117 @@ public class Fortyfour extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == result) {
+        if (e.getSource() == calculo) {
+            String workerName = worker.getText();
+            String AP = paternal.getText();
+            String AM = maternal.getText();
+            String hobby = department.getSelectedItem().toString();
+            String learn = old.getSelectedItem().toString();
 
+            if (workerName.equals("") || workerName.equals("") ||
+                    workerName.equals("") || workerName.equals("") ||
+                    workerName.equals("")) {
+                JOptionPane.showMessageDialog(null, "Debes llenar todos los campos");
+            } else {
+                if (department.getSelectedItem().toString().equals("Listening to music")) {
+                    if (old.getSelectedItem().toString().equals("Continue practicing JAVA")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I do the same too :)");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to implement backlog in your code")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I do the same too :)");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to play chess")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I do not the same, it's a little strange, that's good... I think");
+                    }
+
+                }
+                //
+                if (department.getSelectedItem().toString().equals("Take a walk with your dog")) {
+                    if (old.getSelectedItem().toString().equals("Continue practicing JAVA")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I do it too, but not both at the same time, congratulations if you can... :)");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to implement backlog in your code")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn
+                                        + "." +
+                                        "\n , I go for a walk when I get stressed when learning backlog, that's crazy, I know :)");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to play chess")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I do not the same, it's a little strange, that's good... I think");
+                    }
+
+                }
+                //
+                if (department.getSelectedItem().toString()
+                        .equals("Learn the best programming language in the world (JAVA)")) {
+                    if (old.getSelectedItem().toString().equals("Continue practicing JAVA")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , It's good to learn new thinks everyday, I try to improve my knowledge in Java :)"
+                                        +
+                                        "\n as much as I can");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to implement backlog in your code")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn
+                                        + "." +
+                                        "\n What do you recommend? I want to use a diferent language :)");
+                    }
+                    if (old.getSelectedItem().toString().equals("Learn how to play chess")) {
+                        area.setText(
+                                "\n You, " + workerName + " " + AP + " " + AM + " " + ", seem to like " + hobby
+                                        + " while you " + learn +
+                                        "\n , I knew how to play it two years ago, that's an interesting game,I recommend it");
+                    }
+
+                }
+            }
         }
         if (e.getSource() == orange) {
-
+            getContentPane().setBackground(new Color(236, 112, 99));
         }
         if (e.getSource() == violet) {
-
+            getContentPane().setBackground(new Color(175, 122, 197));
         }
         if (e.getSource() == green) {
-
+            getContentPane().setBackground(new Color(82, 190, 128));
         }
         if (e.getSource() == back) {
-
+            Fortyone formulario = new Fortyone();
+            formulario.setBounds(0, 0, 600, 700);
+            formulario.setVisible(true);
+            formulario.setResizable(false);
+            formulario.setLocationRelativeTo(null);
+            this.setVisible(false);
         }
         if (e.getSource() == New) {
-
+            worker.setText("");
+            paternal.setText("");
+            maternal.setText("");
+            department.setSelectedIndex(0);
+            old.setSelectedIndex(0);
         }
         if (e.getSource() == creater) {
-
+            JOptionPane.showMessageDialog(null, "I hope you to have enjoyed my practice, " +
+                    "\n I'll be doing more complex stuff to show you.");
         }
     }
 
